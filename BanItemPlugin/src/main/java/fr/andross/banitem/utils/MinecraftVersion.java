@@ -34,6 +34,11 @@ public abstract class MinecraftVersion {
     private MinecraftVersion() {}
 
     /**
+     * In 26.1+, Attribute (and similar types) was converted from an enum to an interface backed by a registry.
+     */
+    public static final boolean v26OrMore;
+
+    /**
      * In 1.21+, Crafter item has been added.
      */
     public static final boolean v21OrMore;
@@ -94,6 +99,7 @@ public abstract class MinecraftVersion {
             majorMcVersion = 1;
             Bukkit.getLogger().warning("[VERSION] Unrecognized/Unsupported Bukkit version!");
         }
+        v26OrMore = majorMcVersion >= 26;
         v21OrMore = majorMcVersion >= 21;
         v16OrMore = majorMcVersion >= 16;
         v14OrMore = majorMcVersion >= 14;
